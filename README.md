@@ -3,11 +3,9 @@
 [![ForTheBadge uses-css](http://ForTheBadge.com/images/badges/uses-css.svg)](http://ForTheBadge.com)
 
 
-# ViajeNow  
+# Sobre mim 
 
-Projeto demonstrativo apenas para pratica de front end
-
-[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+Profissional multidisciplinar bacharel em Ciência da Computação, com participação em várias atividades no ambiente acadêmico, como monitoria, iniciação científica e estágios. Atuo predominantemente como desenvolvedora front-end com ReactJS, possuo experiência com desenvolvimento mobile em React Native e back end em NodeJs. Sou coordenadora de midias da Start Coding, uma comunidade que incentiva mais mulheres na tecnologia.
 
 <!--te-->
 
@@ -16,9 +14,9 @@ Projeto demonstrativo apenas para pratica de front end
 👍🏻 Finalizado
 
 
-###  Demonstração 💻
+### Acesse 💻
 
-![gif](https://github.com/katiacih/viajenow/blob/main/res/viajenow.gif)
+https://katiacih.github.io/
 
 
 #  Autor 👩🏻‍💻
@@ -28,5 +26,3 @@ Kátia Cibele
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
-
-[Linkedin](https://www.linkedin.com/in/k%C3%A1tia-cibele-33a2a971/)
