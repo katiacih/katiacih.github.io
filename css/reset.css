@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+/**
+ * Remove anchor text-decoration
+ */ 
+
+ a {
+	text-decoration: none;
+}
+
+/**
+ * Remove list-style
+ */ 
+
+ol, ul {
+	list-style: none;
+}
+
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, img, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, article, footer, header, nav, section, main {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul {
+	font-weight: normal;
+}
+
+body {
+	
+}
+
+h1 {
+  font-family: 'Nova Round', cursive, 'Bree Serif', serif;
+  font-size: 32px;
+}
+
+h1, h2, h3, h4, p, a {
+  font-family: 'Nova Round', cursive, 'Bree Serif', serif;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0px;
+}
+
+body a {
+	font-variant: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-transform: none;
+}
+
+a {
+  text-decoration-line: none;
+  font-weight: 600;
+  color: #006064;
+}
+li {
+	list-style-type: none;
+}
+
+* {
+	box-sizing:border-box
+}
