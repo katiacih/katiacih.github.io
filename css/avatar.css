@@ -1,0 +1,238 @@
+/* AVATAR */
+
+:root {
+  --background: #020916;
+  --background-light: #061c45;;
+  --bg-content: #5ab3b5; //#00ced1;
+  --shirt: #b51231;
+  --skin: #c74b16;
+  --dark-skin: #b33e0d;
+  --eyes: #330909;
+
+}
+
+.avatar-content {
+  background-color: var(--bg-content);
+  position: relative;
+  width: 180px;
+  border-radius: 50%;
+  height: 180px;
+}
+.avatar-body {
+	width: 34px;
+  height: 22px;
+	background: var(--shirt);
+  position: absolute;
+  left: calc(50% - 20px);
+  top: 73%;
+  z-index: 1;
+}
+
+.avatar-body &:after {
+	content: "";
+	position: absolute;
+	border-bottom: 20px solid darken(white, 10%);
+	border-left: 20x solid transparent;
+	border-right: 15px solid transparent;
+	height: 0;
+	width: 22px;
+	right: calc(50% - 10px);
+	top: -20px;
+}
+.avatar-body &:before {
+	content: "";
+	position: absolute;
+	border-bottom: 20px solid darken(white, 20%);
+	border-left: 15px solid transparent;
+	border-right: 0px solid transparent;
+	height: 0;
+	width: 25px;
+	right: 2px;
+	top: -20px;
+}
+
+.shirt-button {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 100%;
+  left: calc(50% - 3px);
+  top: 8px;
+}
+
+.avatar-head {
+  position: absolute;
+  z-index: 3;
+  width: 50px;
+  height: 78px;
+  background: var(--skin);
+  border-radius: 40px;
+  left: calc(50% - 26px);
+  top: 46px
+}
+
+.avatar-neck {
+  position: absolute;
+  width: 23px;
+  height: 28px;
+  background: var(--skin);
+  left: calc(50% - 14px);
+  top: 65%;
+  box-shadow: inset 0px 13px 0px 0px #993a11;
+}
+
+
+.avatar-hair {
+  position: absolute;
+  width: 81px;
+  height: 81px;
+  background: var(--background);
+  border-radius: 100%;
+  left: calc(50% - 47px);
+  top: 16%;
+  box-shadow: inset 5px 1px var(--background-light)
+}
+
+.avatar-hair::after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 21px;
+  background: var(--background);
+  border-radius: 0px 200px 0px 200px;
+  z-index: 4;
+  left: 13px;
+  top: 19px;
+  transform: rotate(125deg);
+}
+
+.avatar-ponytail {
+  width: 68px;
+  height: 53px;
+  position: absolute;
+  background: var(--background);
+  left: 31%;
+  top: 36%;
+  border-radius: 200px;
+}
+
+.avatar-ponytail::after {
+  content: "";
+  position: absolute;
+  width: 82px;
+  height: 47px;
+  background: var(--background);
+  border-radius: 0 0 300px 300px;
+  top: 58%;
+  right: -4%;
+}
+
+.avatar-face {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: calc(50% - 35px);
+  top: calc(50% - 50px);
+  z-index: 5;
+}
+
+.avatar-head .eyes {
+  width: 49px;
+  height: 22px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 31px;
+  left: 1px;
+}
+
+.avatar-head .eyes::before {
+  display: inline-block;
+  content: "";
+  width: 38px;
+  height: 14px;
+  background: var(--eyes);
+  margin: 0 8px;
+  border-radius: 8px;
+  animation: blink 3s ease-in-out infinite;
+}
+
+.avatar-head .eyes::after {
+  display: inline-block;
+  content: "";
+  width: 38px;
+  height: 14px;
+  background: var(--eyes);
+  margin: 0 8px;
+  border-radius: 8px;
+  animation: blink 3s ease-in-out infinite;
+}
+
+.avatar-head .glasses .left {
+  position: absolute;
+  width: 22px;
+  height: 25px;
+  background: transparent;
+  border-radius: 27%;
+  border: 2px solid #55524e;
+  left: 3px;
+  top: 27px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.avatar-head .glasses .right {
+  position: absolute;
+  width: 22px;
+  height: 26px;
+  background: transparent;
+  border-radius: 27%;
+  border: 2px solid #55524e;
+  left: 28px;
+  top: 26px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+
+@keyframes blink {
+  0% {
+    transform: scaleY(1);
+  }
+  18% {
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(0);
+  }
+  25% {
+    transform: scaleY(1);
+  }
+  38% {
+    transform: scaleY(1);
+  }
+  40% {
+    transform: scaleY(0);
+  }
+  45% {
+    transform: scaleY(1);
+  }
+  80% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  } 30% {
+    transform: scale(1.5);
+  } 100% {
+    transform: scale(1);
+  }
+}
+
+
+/* https://codepen.io/acupoftee/pen/mYGNbj?editors=1100 */
+
