@@ -65,20 +65,18 @@ body {
 /* ---------  typography  ---------- */
 
 .text-extra-large {
-	font-size: 3.7em;
+	font-size: 72px;
 }
 .text-large {
-	font-size: 2.7em;
+	font-size: 46px;
 }
 .text-medium {
-	font-size: 1.7em;
+	font-size: 24px;
 }
 .text-normal {
-	font-size: 1.125em;
+	font-size: 18px;;
 }
-.text-small {
-	font-size: 0.75em;
-}
+
 
 
 .text-default {
@@ -107,7 +105,7 @@ body {
   padding: 30px;
 	text-align: justify;
 	min-height: 150px;
-	width: 570px;
+	width: calc(100% - 200px);
 	margin: 0 auto;
 }
 
@@ -150,18 +148,15 @@ body {
 }
 
 
-
 /* -----------  intro -------- */
 
 
 .intro {
 	margin-top: 150px;
-	width: 570px;
 }
 
 .description {
 	min-width: 50px;
-
 	color: var(--text-color-default);
 }
 
@@ -245,22 +240,7 @@ body {
 }
 
 
-
 /* ------------ contact  ------------  */
-.contratar{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-@media ( max-width: 800px ) {
-	.contratar {
-	  display: flex;
-	  flex-direction: column;
-	}
-}
-
-
 .contact-container {
 	width: 100%;
 	display: flex;
@@ -288,40 +268,16 @@ body {
 	padding: 30px 0px;
 }
 
-@media (max-width: 600px) {
-	.into {
-		margin-top: 50px;
-	}
+@media only screen and (max-width: 800px) {
+	
 	.menu {
 		display: none;
 	}
 	/* ---------  typography  ---------- */
 
-	.text-extra-large {
-		font-size: 2.3em;
-	}
-	.text-large {
-		font-size: 1.7em;
-	}
-	.text-medium {
-		font-size: 1.125em;
-	}
-	.text-normal {
-		font-size: 1.0em;
-	}
-	.text-small {
-		font-size: 0.75em;
-	}
-	.divider {
-		margin: 0px calc(8%) 0px;
-	}
-
 	.section  {
 		width: 100%;
 		margin: 0 auto;
-	}
-	.skills-container {
-	 flex-direction: row;
 	}
 	.carrer-content {
 		flex-direction: column;
@@ -333,7 +289,11 @@ body {
 	.carrer-content div {
 		width: 100%;
 	}
-	
-
-	
+	.divider {
+		margin: 0px calc(8%) 0px;
+	}
+	.skills-container {
+		flex-direction: row;
+	 }
+		
 }
