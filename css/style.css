@@ -104,8 +104,8 @@ body {
   justify-content: space-around;
   padding: 30px;
 	text-align: justify;
-	min-height: 150px;
-	width: calc(100% - 200px);
+	min-height: 200px;
+	max-width: 800px;
 	margin: 0 auto;
 }
 
