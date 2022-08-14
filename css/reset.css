@@ -57,15 +57,3 @@ body a {
   text-transform: none;
 }
 
-a {
-  text-decoration-line: none;
-  font-weight: 600;
-  color: #006064;
-}
-li {
-	list-style-type: none;
-}
-
-* {
-	box-sizing:border-box
-}
