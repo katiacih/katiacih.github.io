@@ -5,7 +5,7 @@
 
 # Sobre mim 
 
-Profissional multidisciplinar bacharel em Ciência da Computação, com participação em várias atividades no ambiente acadêmico, como monitoria, iniciação científica e estágios. Atuo predominantemente como desenvolvedora front-end com ReactJS, possuo experiência com desenvolvimento mobile em React Native e back end em NodeJs. Sou coordenadora de midias da Start Coding, uma comunidade que incentiva mais mulheres na tecnologia.
+Profissional multidisciplinar bacharel em Ciência da Computação, com participação em várias atividades no ambiente acadêmico, como monitoria, iniciação científica e estágios. Atuo predominantemente como desenvolvedora front-end com ReactJS, possuo experiência com desenvolvimento mobile em React Native e back-end em NodeJs e elixir. Sou coordenadora de midias da Start Coding, uma comunidade que incentiva mais mulheres na tecnologia.
 
 <!--te-->
 
