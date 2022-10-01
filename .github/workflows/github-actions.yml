@@ -6,15 +6,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
 
-        - name: Check HTML
-          uses: chabad360/htmlproofer@master
-          with:
-            directory: "/"
-            # The directory to scan
-            arguments: --allow-missing-href
-            # The arguments to pass to HTMLProofer
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+
+      - name: Check HTML
+        uses: chabad360/htmlproofer@master
+        with:
+          directory: "/"
+          # The directory to scan
+          arguments: --allow-missing-href
+          # The arguments to pass to HTMLProofer
 
         # - name: HTML Preview
         #   id: html_preview
