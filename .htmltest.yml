@@ -1,0 +1,8 @@
+
+DirectoryPath: "../../"
+IgnoreDirs:
+- "lib"
+- "css"
+- "js"
+CacheExpires: "6h"
+IgnoreExternalBrokenLinks: true
