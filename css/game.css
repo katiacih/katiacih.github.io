@@ -86,10 +86,13 @@
   margin-bottom: 8px;
 }
 
+.content-card:hover {
+  cursor: pointer;
+}
+
 .card {
   width: 36px;
   height: 36px;
- 
 }
 
 .card-disabled {
