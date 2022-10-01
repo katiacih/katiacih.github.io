@@ -1,5 +1,5 @@
 
-DirectoryPath: "~"
+DirectoryPath: "../../"
 IgnoreDirs:
 - "lib"
 - "css"
