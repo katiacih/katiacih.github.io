@@ -1,5 +1,5 @@
 name: CI
-run-name: CI 🚀
+run-name: CI 🚀🕵️‍♀️
 on: [push]
 
 jobs:
@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Check out repository code
+      - name: Check out repository code 👀
         uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
-      - name: Run htmltest
+      - name: Run Validator HTML 👾
         uses: wjdp/htmltest-action@master
         with:
           config: .htmltest.yml
