@@ -1,7 +1,10 @@
 
 
-DirectoryPath: "../../"
-DirectoryIndex: "index.html"
+FilePath: "../../index.html"
 IgnoreDirs:
 - "lib"
+- "css"
+- "js"
+- "img"
+CheckScripts: false
 CacheExpires: "6h"
