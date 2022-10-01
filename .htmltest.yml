@@ -1,6 +1,6 @@
 
 
-DirectoryPath: "../"
+DirectoryPath: "../../"
 DirectoryIndex: "index.html"
 IgnoreDirs:
 - "lib"
