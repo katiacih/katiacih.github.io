@@ -15,3 +15,4 @@ jobs:
         uses: wjdp/htmltest-action@master
         with:
           DirectoryPath: /
+          config: .htmltest.yml

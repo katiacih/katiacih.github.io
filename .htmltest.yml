@@ -1,0 +1,7 @@
+
+
+DirectoryPath: "/"
+DirectoryIndex: "index.html"
+IgnoreDirs:
+- "lib"
+CacheExpires: "6h"
