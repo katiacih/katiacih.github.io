@@ -1,36 +1,54 @@
-name: GitHub Actions Demo
+name: CI
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-
-
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      
-      - name: Check HTML
-        uses: chabad360/htmlproofer@master
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
         with:
-          directory: "/"
-          # The directory to scan
-          arguments: --allow-missing-href
-          # The arguments to pass to HTMLProofer
-
-      - name: HTML Preview
-        id: html_preview
-        uses: pavi2410/html-preview-action@v2
+          ruby-version: 2.7.x
+      - uses: actions/cache@v2
         with:
-          html_file: 'index.html'
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - run: bundle exec jekyll build
+      - uses: anishathalye/proof-html@v1
+        with:
+          directory: ./_site
+          enforce_https: false
+          tokens: |
+            {"https://github.com": "${{ secrets.GITHUB_TOKEN }}"}
+          url_ignore: |
+            http://www.example.com/
+            https://en.wikipedia.org/wiki/Main_Page
+          url_ignore_re: |
+            ^https://twitter.com/
+          internal_domains: |
+            www.anishathalye.com
+
+        - name: Check HTML
+          uses: chabad360/htmlproofer@master
+          with:
+            directory: "/"
+            # The directory to scan
+            arguments: --allow-missing-href
+            # The arguments to pass to HTMLProofer
+
+        - name: HTML Preview
+          id: html_preview
+          uses: pavi2410/html-preview-action@v2
+          with:
+            html_file: 'index.html'
+
+        - name: Validate HTML
+          uses: anishathalye/proof-html@v1
+          with:
+            directory: /
