@@ -3,7 +3,7 @@ run-name: CI 🚀🕵️‍♀️
 on: [push]
 
 jobs:
-  Explore-GitHub-Actions:
+  Actions:
     runs-on: ubuntu-latest
     steps:
 
