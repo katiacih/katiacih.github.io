@@ -1,129 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const cards = [
+  const cardsOrigin = [
     { 
-      id: 1,
       name: 'burguer', 
-      src: '/img/memory-images/burger.png'
+      src: '/img/memory-images/burger.png',
+      alt: 'hamburguer'
     },
     { 
-      id: 2,
       name: 'chinese-food', 
-      src: '/img/memory-images/chinese-food.png'
+      src: '/img/memory-images/chinese-food.png',
+      alt: 'comida chinesa'
     },
     { 
-      id: 3,
       name: 'chocolate-bar', 
-      src: '/img/memory-images/chocolate-bar.png'
+      src: '/img/memory-images/chocolate-bar.png',
+      alt: 'barra de chocolate'
     },
     { 
-      id: 4,
       name: 'cupcake', 
-      src: '/img/memory-images/cupcake.png'
+      src: '/img/memory-images/cupcake.png',
+      alt: 'cupcake'
     },
     { 
-      id: 5,
       name: 'drink', 
-      src: '/img/memory-images/drink.png'
+      src: '/img/memory-images/drink.png',
+      alt: 'bebida'
     },
     { 
-      id: 6,
       name: 'french-fries', 
-      src: '/img/memory-images/french-fries.png'
+      src: '/img/memory-images/french-fries.png',
+      alt: 'batata frita'
     },
     { 
-      id: 7,
       name: 'hot-dog', 
-      src: '/img/memory-images/hot-dog.png'
+      src: '/img/memory-images/hot-dog.png',
+      alt: 'hot dog'
     },
     { 
-      id: 8,
       name: 'japanese-food', 
-      src: '/img/memory-images/japanese-food.png'
+      src: '/img/memory-images/japanese-food.png',
+      alt: 'comida japonesa'
     },
     { 
-      id: 9,
       name: 'kebab', 
-      src: '/img/memory-images/kebab.png'
+      src: '/img/memory-images/kebab.png',
+      alt: 'kebab'
     },
     { 
-      id: 10,
       name: 'spaghetti', 
-      src: '/img/memory-images/spaghetti.png'
+      src: '/img/memory-images/spaghetti.png',
+      alt: 'espaguete'
     },
     { 
-      id: 11,
       name: 'pizza', 
-      src: '/img/memory-images/pizza.png'
+      src: '/img/memory-images/pizza.png',
+      alt: 'pizza'
     },
     { 
-      id: 12,
       name: 'popcorn', 
-      src: '/img/memory-images/popcorn.png'
-    },
-    { 
-      id: 13,
-      name: 'burguer', 
-      src: '/img/memory-images/burger.png'
-    },
-    { 
-      id: 14,
-      name: 'chinese-food', 
-      src: '/img/memory-images/chinese-food.png'
-    },
-    { 
-      id: 15,
-      name: 'chocolate-bar', 
-      src: '/img/memory-images/chocolate-bar.png'
-    },
-    { 
-      id: 16,
-      name: 'cupcake', 
-      src: '/img/memory-images/cupcake.png'
-    },
-    { 
-      id: 17,
-      name: 'drink', 
-      src: '/img/memory-images/drink.png'
-    },
-    { 
-      id: 18,
-      name: 'french-fries', 
-      src: '/img/memory-images/french-fries.png'
-    },
-    { 
-      id: 19,
-      name: 'hot-dog', 
-      src: '/img/memory-images/hot-dog.png'
-    },
-    { 
-      id: 20,
-      name: 'japanese-food', 
-      src: '/img/memory-images/japanese-food.png'
-    },
-    { 
-      id: 21,
-      name: 'kebab', 
-      src: '/img/memory-images/kebab.png'
-    },
-    { 
-      id: 22,
-      name: 'spaghetti', 
-      src: '/img/memory-images/spaghetti.png'
-    },
-    { 
-      id: 23,
-      name: 'pizza', 
-      src: '/img/memory-images/pizza.png'
-    },
-    { 
-      id: 24,
-      name: 'popcorn', 
-      src: '/img/memory-images/popcorn.png'
-    },
+      src: '/img/memory-images/popcorn.png',
+      alt: 'pipoca'
+    }
   ];
 
-  cards.sort(() => Math.random() - 0.5 );
+  const cardInverse = cardsOrigin.reverse();
+  const cardConcat = cardsOrigin.concat(cardInverse);
+  const cards = cardConcat.map((item, index) => ({ id: index, ...item})).sort(() => Math.random() - 0.5 );
 
   const game = document.querySelector('.game');
   const score = document.querySelector('.results');
@@ -144,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('img');
       card.setAttribute('class', 'card');
       card.setAttribute('src', 'img/memory-images/back-card.png');
+      card.setAttribute('alt', 'carta escondida');
       object.appendChild(card);
       cardDisabled = document.createElement('div');
       cardDisabled.setAttribute('class', 'card-disabled');
@@ -158,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardsChosenId.push(cardId);
     cardImg = this.childNodes[0];
     cardImg.setAttribute('src', cards[cardId].src);
+    cardImg.setAttribute('alt', cards[cardId].alt);
     if (cardsChosen.length === 2) {
       setTimeout(controllerGame, 500)
     }
@@ -165,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function flipCardToBlank(node) {
     node.setAttribute('src', 'img/memory-images/back-card.png');
+    node.setAttribute('alt', 'carta escondida');
   }
 
   function SetDisplayBlock(node) {
