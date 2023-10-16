@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardConcat = cardsOrigin.concat(cardInverse);
   const cards = cardConcat.map((item, index) => ({ id: index, ...item})).sort(() => Math.random() - 0.5 );
 
+  const spinner = document.querySelector('.content-spinner');
   const game = document.querySelector('.game');
   const score = document.querySelector('.results');
   const displayText = document.querySelector('.text-game');
@@ -77,77 +78,97 @@ document.addEventListener('DOMContentLoaded', () => {
   let cardsChosenId = []
   let cardsWon = []
 
+
+  function createCardFrontObject(i) {
+    const object =  document.createElement('div');
+    object.setAttribute('class', 'card-front');
+    object.setAttribute('data-id', i);
+    const card = document.createElement('img');
+    card.setAttribute('src', cards[i].src);
+    card.setAttribute('alt', cards[i].alt);
+    object.appendChild(card);
+    return object;
+  }
+
+  function createCardBackObject() {
+    const object = document.createElement('div');
+    object.setAttribute('class', 'card-back');
+    const card = document.createElement('img');
+    card.setAttribute('src', 'img/memory-images/back-card.png');
+    card.setAttribute('alt', 'carta escondida');
+    object.appendChild(card);
+    return object;
+  }
+
   function mountBoard() {
     for (let i = 0; i < cards.length; i++) {
       const object =  document.createElement('div');
-      object.setAttribute('class', 'content-card');
-      object.addEventListener('click', flipCard)
+      object.setAttribute('class', 'card');
       object.setAttribute('data-id', i);
-      const card = document.createElement('img');
-      card.setAttribute('class', 'card');
-      card.setAttribute('src', 'img/memory-images/back-card.png');
-      card.setAttribute('alt', 'carta escondida');
-      object.appendChild(card);
-      cardDisabled = document.createElement('div');
-      cardDisabled.setAttribute('class', 'card-disabled');
-      object.appendChild(cardDisabled);
+      object.addEventListener('click', flipCard);
+      const inner = document.createElement('div');
+      inner.setAttribute('class', 'card-inner');
+      const front = createCardFrontObject(i);
+      const back = createCardBackObject();
+      inner.append(front);
+      inner.append(back);
+      object.append(inner);
       game.appendChild(object);
     }
+
+    spinner.setAttribute('style', 'display: none');
+    game.setAttribute('style', 'display: flex');
   }
 
   function flipCard() {
-    let cardId = this.getAttribute('data-id');
-    cardsChosen.push(cards[cardId].name);
-    cardsChosenId.push(cardId);
-    cardImg = this.childNodes[0];
-    cardImg.setAttribute('src', cards[cardId].src);
-    cardImg.setAttribute('alt', cards[cardId].alt);
+    // se ja foram escolhidos 2 não pode desvirar
+    if (cardsChosen.length < 2) {
+      let cardId = this.getAttribute('data-id');
+      cardsChosen.push(cards[cardId].name);
+      cardsChosenId.push(cardId);
+      cardBack = this.childNodes[0].childNodes[1]
+      cardBack.setAttribute('style', 'transform: rotateY(180deg)')
+    }
     if (cardsChosen.length === 2) {
       setTimeout(controllerGame, 500)
-    }
+    } 
   }
 
   function flipCardToBlank(node) {
-    node.setAttribute('src', 'img/memory-images/back-card.png');
-    node.setAttribute('alt', 'carta escondida');
+    node.lastChild.setAttribute('style', 'transform: none')
   }
 
   function SetDisplayBlock(node) {
     node.setAttribute('style', 'display: block');
   }
 
-
-
   function controllerGame() {
-    const cards = document.querySelectorAll('.content-card');
-    const optionOneId = cardsChosenId[0]
-    const optionTwoId = cardsChosenId[1]
+    const cards = document.querySelectorAll('.card');
+    const cardChosenOneId = cardsChosenId[0]
+    const cardChosenTwoId = cardsChosenId[1]
     
-    if(optionOneId == optionTwoId) {
+    if(cardChosenOneId == cardChosenTwoId) {
       //  mesma peça
     }
-    else if (cardsChosen[0] === cardsChosen[1]) {
-      cards[optionOneId].removeEventListener('click', flipCard)
-      cards[optionTwoId].removeEventListener('click', flipCard)
+    else if (cardsChosen[0] === cardsChosen[1]) { // cards iguais
+      cards[cardChosenOneId].removeEventListener('click', flipCard)
+      cards[cardChosenTwoId].removeEventListener('click', flipCard)
       cardsWon.push(cardsChosen);
-      cardImgOne = cards[optionOneId].childNodes;
-      cardImgTwo = cards[optionTwoId].childNodes;
-      if(cardImgOne.length === 2 && cardImgTwo.length === 2) {
-        setTimeout(() => {
-          SetDisplayBlock(cardImgOne[1]);
-          SetDisplayBlock(cardImgTwo[1]);
-        }, 1000);
-      }
       
-    } else {
-      cardImgOne = cards[optionOneId].childNodes;
-      cardImgTwo = cards[optionTwoId].childNodes;
-      if(cardImgOne.length === 2 &&  cardImgTwo.length === 2) {
-        setTimeout(() => {
-          flipCardToBlank(cardImgOne[0]);
-          flipCardToBlank(cardImgTwo[0]);
-        }, 1000);
-      }
+      cardOne = cards[cardChosenOneId].childNodes[0].childNodes[0];
+      cardTwo = cards[cardChosenTwoId].childNodes[0].childNodes[0];
+      cardOne.setAttribute('style', 'opacity: 0.6');
+      cardTwo.setAttribute('style', 'opacity: 0.6');
+      
+    } else { // cards diferentes
+      // card[id] > card-inner > card-front > img
+      cardImgOne = cards[cardChosenOneId].childNodes[0].childNodes[0].getElementsByTagName('img')[0];
+      cardImgTwo = cards[cardChosenTwoId].childNodes[0].childNodes[0].getElementsByTagName('img')[0];
+      
+      setTimeout(() => {
+        flipCardToBlank(cards[cardChosenOneId].childNodes[0]);
+        flipCardToBlank(cards[cardChosenTwoId].childNodes[0]);
+      }, 1000); 
     }
 
     cardsChosen = []
