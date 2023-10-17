@@ -189,10 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
     cardsChosen = [];
     cardsChosenId = [];
     cardsWon = [];
-    let listCards = document.querySelectorAll('.content-card');
+    let listCards = document.querySelectorAll('.card');
     listCards.forEach(element => {
       game.removeChild(element);
     });
+    game.setAttribute('styles', 'display: none');
+    spinner.setAttribute('styles', 'display: flex');
     cards.sort(() => Math.random() - 0.5 );
     mountBoard();
   }
